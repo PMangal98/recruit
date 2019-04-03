@@ -1,23 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 4.8.5
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: Apr 02, 2019 at 10:17 AM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.3
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
 --
 -- Database: `recruit`
 --
@@ -34,7 +14,7 @@ CREATE TABLE `application` (
   `appl_date` date NOT NULL,
   `description` varchar(100) NOT NULL,
   `status` int(2) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 
 --
 -- Dumping data for table `application`
@@ -45,17 +25,6 @@ INSERT INTO `application` (`employee_id`, `job_id`, `appl_date`, `description`, 
 (2, 1, '2019-04-04', 'I am not', 1);
 
 -- --------------------------------------------------------
-
---
--- Stand-in structure for view `aux`
--- (See below for the actual view)
---
-CREATE TABLE `aux` (
-`employee_id` int(5)
-,`exp_id` int(5)
-,`skill_id` int(5)
-,`duration` decimal(10,4)
-);
 
 -- --------------------------------------------------------
 
@@ -69,7 +38,7 @@ CREATE TABLE `educationalqualification` (
   `aggregate_percentage` int(3) NOT NULL,
   `insti_id` int(5) NOT NULL,
   `end_year` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 
 --
 -- Dumping data for table `educationalqualification`
@@ -94,7 +63,7 @@ CREATE TABLE `employeeinfo` (
   `email` varchar(30) DEFAULT NULL,
   `contact` varchar(15) DEFAULT NULL,
   `dob` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 
 --
 -- Dumping data for table `employeeinfo`
@@ -115,7 +84,7 @@ INSERT INTO `employeeinfo` (`employee_id`, `username`, `name`, `email`, `contact
 CREATE TABLE `employeeinterest` (
   `employee_id` int(5) NOT NULL,
   `skill_id` int(5) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 
 --
 -- Dumping data for table `employeeinterest`
@@ -133,15 +102,6 @@ INSERT INTO `employeeinterest` (`employee_id`, `skill_id`) VALUES
 
 -- --------------------------------------------------------
 
---
--- Stand-in structure for view `employeeskill`
--- (See below for the actual view)
---
-CREATE TABLE `employeeskill` (
-`employee_id` int(5)
-,`skill_id` int(5)
-,`total_duration` decimal(32,4)
-);
 
 -- --------------------------------------------------------
 
@@ -157,7 +117,7 @@ CREATE TABLE `employerinfo` (
   `contact` varchar(15) DEFAULT NULL,
   `dob` date DEFAULT NULL,
   `org_id` int(5) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 
 --
 -- Dumping data for table `employerinfo`
@@ -180,7 +140,7 @@ CREATE TABLE `experience` (
   `start_date` date NOT NULL,
   `end_date` date NOT NULL,
   `employee_id` int(5) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 
 --
 -- Dumping data for table `experience`
@@ -203,7 +163,7 @@ INSERT INTO `experience` (`exp_id`, `exp_type`, `description`, `start_date`, `en
 CREATE TABLE `experienceskill` (
   `exp_id` int(5) NOT NULL,
   `skill_id` int(5) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 
 --
 -- Dumping data for table `experienceskill`
@@ -231,7 +191,7 @@ CREATE TABLE `institute` (
   `name` varchar(30) NOT NULL,
   `contact` varchar(15) DEFAULT NULL,
   `address` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 
 --
 -- Dumping data for table `institute`
@@ -258,7 +218,7 @@ CREATE TABLE `job` (
   `salary` int(5) NOT NULL,
   `location` varchar(20) NOT NULL,
   `employer_id` int(5) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 
 --
 -- Dumping data for table `job`
@@ -282,7 +242,7 @@ CREATE TABLE `jobskill` (
   `job_id` int(5) NOT NULL,
   `skill_id` int(5) NOT NULL,
   `duration` int(5) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 
 --
 -- Dumping data for table `jobskill`
@@ -314,7 +274,7 @@ INSERT INTO `jobskill` (`job_id`, `skill_id`, `duration`) VALUES
 CREATE TABLE `logininfo` (
   `username` varchar(40) NOT NULL,
   `password` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 
 --
 -- Dumping data for table `logininfo`
@@ -337,7 +297,7 @@ INSERT INTO `logininfo` (`username`, `password`) VALUES
 CREATE TABLE `offeredby` (
   `insti_id` int(5) NOT NULL,
   `qual_id` int(5) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 
 --
 -- Dumping data for table `offeredby`
@@ -389,7 +349,7 @@ CREATE TABLE `organization` (
   `addr` varchar(40) DEFAULT NULL,
   `contact` varchar(15) DEFAULT NULL,
   `email` varchar(30) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 
 --
 -- Dumping data for table `organization`
@@ -410,7 +370,7 @@ CREATE TABLE `qualification` (
   `degree` varchar(7) NOT NULL,
   `domain` varchar(7) NOT NULL,
   `duration` int(5) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 
 --
 -- Dumping data for table `qualification`
@@ -435,7 +395,7 @@ INSERT INTO `qualification` (`qual_id`, `degree`, `domain`, `duration`) VALUES
 CREATE TABLE `skill` (
   `skill_id` int(5) NOT NULL,
   `skill_name` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 
 --
 -- Dumping data for table `skill`
@@ -448,23 +408,6 @@ INSERT INTO `skill` (`skill_id`, `skill_name`) VALUES
 (4, 'Python'),
 (5, 'Html');
 
--- --------------------------------------------------------
-
---
--- Structure for view `aux`
---
-DROP TABLE IF EXISTS `aux`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `aux`  AS  select `experience`.`employee_id` AS `employee_id`,`experience`.`exp_id` AS `exp_id`,`experienceskill`.`skill_id` AS `skill_id`,((to_days(`experience`.`end_date`) - to_days(`experience`.`start_date`)) / 30) AS `duration` from (`experience` join `experienceskill`) where (`experience`.`exp_id` = `experienceskill`.`exp_id`) ;
-
--- --------------------------------------------------------
-
---
--- Structure for view `employeeskill`
---
-DROP TABLE IF EXISTS `employeeskill`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `employeeskill`  AS  select `exp_skill`.`employee_id` AS `employee_id`,`exp_skill`.`skill_id` AS `skill_id`,sum(`exp_skill`.`duration`) AS `total_duration` from `aux` `exp_skill` group by `exp_skill`.`employee_id`,`exp_skill`.`skill_id` ;
 
 --
 -- Indexes for dumped tables
@@ -698,6 +641,3 @@ ALTER TABLE `offeredby`
   ADD CONSTRAINT `fk5_2` FOREIGN KEY (`qual_id`) REFERENCES `qualification` (`qual_id`);
 COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
