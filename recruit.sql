@@ -642,4 +642,16 @@ ALTER TABLE `offeredby`
 COMMIT;
 
 
+CREATE  VIEW `aux`  AS  select 
+`experience`.`employee_id` AS `employee_id`,
+`experience`.`exp_id` AS 
+`exp_id`,`experienceskill`.`skill_id` AS `skill_id`,
+(DATEDIFF(`experience`.`end_date`,`experience`.`start_date`) / 30) AS `duration` 
+from (`experience` join `experienceskill`) where (`experience`.`exp_id` = `experienceskill`.`exp_id`) ;
+
+CREATE VIEW `employeeskill`  AS  select 
+`exp_skill`.`employee_id` AS `employee_id`,
+`exp_skill`.`skill_id` AS `skill_id`,
+sum(`exp_skill`.`duration`) AS `total_duration` 
+from `aux` `exp_skill` group by `exp_skill`.`employee_id`,`exp_skill`.`skill_id` ;
 
