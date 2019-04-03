@@ -7,7 +7,7 @@
 --
 -- Table structure for table `application`
 --
-
+USE id9110648_recruit;
 CREATE TABLE `application` (
   `employee_id` int(5) NOT NULL,
   `job_id` int(5) NOT NULL,
@@ -640,4 +640,6 @@ ALTER TABLE `offeredby`
   ADD CONSTRAINT `fk5_1` FOREIGN KEY (`insti_id`) REFERENCES `institute` (`insti_id`),
   ADD CONSTRAINT `fk5_2` FOREIGN KEY (`qual_id`) REFERENCES `qualification` (`qual_id`);
 COMMIT;
+
+
 
