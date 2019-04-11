@@ -3,7 +3,7 @@ require_once 'dbconnect.php';
 $username_or_email = $_POST["username_or_email"];
 $password = $_POST["password"];
 
-$query1 = "SELECT username FROM recruit.loginInfo WHERE `username`='$username_or_email' AND `password`='$password'";
+$query1 = "SELECT username FROM recruit.logininfo WHERE `username`='$username_or_email' AND `password`='$password'";
 
 $result1 = mysqli_query($dbcon, $query1);
 if($result1 == FALSE) {
