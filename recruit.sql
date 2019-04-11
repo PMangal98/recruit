@@ -7,8 +7,7 @@
 --
 -- Table structure for table `application`
 --
-CREATE DATABASE recruit;
-USE recruit;
+USE id9110648_recruit;
 CREATE TABLE `application` (
   `employee_id` int(5) NOT NULL,
   `job_id` int(5) NOT NULL,
